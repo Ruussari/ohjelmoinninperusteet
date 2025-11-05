@@ -38,9 +38,10 @@ def main():
     tuntimaara = int(varaus.split('|')[4])
     print("Tuntimäärä:", tuntimaara)
     tuntihinta = float(varaus.split('|')[5])
-    print("Tuntihinta:", tuntihinta, "€")
+    print("Tuntihinta:", f"{tuntihinta:.2f}".replace('.', ','), "€")
+    #print("Tuntihinta:", tuntihinta, "€")
     kokonaishinta = tuntimaara * tuntihinta
-    print("Kokonaishinta:", kokonaishinta, "€")
+    print("Kokonaishinta:", f"{kokonaishinta:.2f}".replace('.', ','), "€")
     maksettu = varaus.split('|')[6]
     print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
     varauskohde = varaus.split('|')[7]
