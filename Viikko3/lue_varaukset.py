@@ -20,49 +20,72 @@ from datetime import datetime
 
 def hae_varausnumero(varaus):
     varausnumero = int(varaus[0])
-    print(f"Varausnumero: {varausnumero}")
+    #print(f"Varausnumero: {varausnumero}")
+    return varausnumero
 
 def hae_varaaja(varaus):
     nimi = varaus[1]
-    print(f"Varaaja: {nimi}")
+    #print(f"Varaaja: {nimi}")
+    return nimi
 
 def hae_paiva(varaus):
     paiva = datetime.strptime(varaus[2], "%Y-%m-%d").date()
-    print("Päivämäärä:", paiva.strftime("%d.%m.%Y"))
+    #print("Päivämäärä:", paiva.strftime("%d.%m.%Y"))
+    return paiva
 
 def hae_aloitusaika(varaus):
     aika = datetime.strptime(varaus[3], "%H:%M").time()
-    print("Aloitusaika:", aika.strftime("%H.%M"))
+    #print("Aloitusaika:", aika.strftime("%H.%M"))
+    return aika
 
 def hae_tuntimaara(varaus):
     maara = int(varaus[4])
-    print("Tuntimäärä:", maara)
+    #print("Tuntimäärä:", maara)
+    return maara
 
 def hae_tuntihinta(varaus):
     tuntihinta = float(varaus[5])
-    print("Tuntihinta:", f"{tuntihinta:.2f}".replace('.', ','), "€")
+    #print("Tuntihinta:", f"{tuntihinta:.2f}".replace('.', ','), "€")
+    return tuntihinta
 
 def laske_kokonaishinta(varaus):
     kokonaishinta = int(varaus[4]) * float(varaus[5])
-    print("Kokonaishinta:", f"{kokonaishinta:.2f}".replace('.', ','), "€")
+    #print("Kokonaishinta:", f"{kokonaishinta:.2f}".replace('.', ','), "€")
+    return kokonaishinta
 
 def hae_maksettu(varaus):
     maksettu = varaus[6]
-    print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
+    #print(f"Maksettu: {'Kyllä' if maksettu else 'Ei'}")
+    return maksettu
 
 def hae_kohde(varaus):
     kohde = varaus[7]
-    print(f"Varaaja: {kohde}")
+    #print(f"Varaaja: {kohde}")
+    return kohde
 
 def hae_puhelin(varaus):
     puhelinnumero = varaus[8]
-    print("Puhelin:", puhelinnumero)
+    #print("Puhelin:", puhelinnumero)
+    return puhelinnumero
 
 def hae_sahkoposti(varaus):
     sahkoposti = varaus[9]
-    print("Sähköposti:", sahkoposti)
+    #print("Sähköposti:", sahkoposti)
+    return sahkoposti
     
-
+def tulosta_varaus(varaus):
+        print(f"Varausnumero: {hae_varausnumero(varaus)}")
+        print(f"Varaaja: {hae_varaaja(varaus)}")
+        print("Päivämäärä:", hae_paiva(varaus).strftime("%d.%m.%Y"))
+        print("Aloitusaika:", hae_aloitusaika(varaus).strftime("%H.%M"))
+        print("Tuntimäärä:", hae_tuntimaara(varaus))
+        print("Tuntihinta:", f"{hae_tuntihinta(varaus):.2f}".replace('.', ','), "€")
+        print("Kokonaishinta:", f"{laske_kokonaishinta(varaus):.2f}".replace('.', ','), "€")
+        print(f"Maksettu: {'Kyllä' if hae_maksettu(varaus) else 'Ei'}")
+        print(f"Varaaja: {hae_kohde(varaus)}")
+        print("Puhelin:", hae_puhelin(varaus))
+        print("Sähköposti:", hae_sahkoposti(varaus))
+       
 def main():
     # Maaritellaan tiedoston nimi suoraan koodissa
     varaukset = "varaukset.txt"
@@ -76,6 +99,8 @@ def main():
     # Luotavat funktiota tekevat tietotyyppien muunnoksen
     # ja tulostavat esimerkkitulosteen mukaisesti
 
+    tulosta_varaus(varaus)
+"""
     hae_varausnumero(varaus)
     hae_varaaja(varaus)
     hae_paiva(varaus)
@@ -87,6 +112,6 @@ def main():
     hae_kohde(varaus)
     hae_puhelin(varaus)
     hae_sahkoposti(varaus)
-
+"""
 if __name__ == "__main__":
     main()
