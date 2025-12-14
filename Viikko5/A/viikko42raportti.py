@@ -31,6 +31,8 @@ def lue_data(tiedoston_nimi: str) -> list:
     return kulutusTuotantoTiedot
 
 def paivantiedot(paiva: str, lukemat: list) -> int:
+    """Erottelee päivämäärän tiedoista, laskee kulutus- ja tuotantovaiheet.
+       Muuttaa Wh -> kWh"""
     pv = int(paiva.split('.')[0])
     kk = int(paiva.split('.')[1])
     vuosi = int(paiva.split('.')[2])
