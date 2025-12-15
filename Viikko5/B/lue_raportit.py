@@ -6,7 +6,7 @@
 #
 # See LICENSE file in the project root for full license information.
 
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 
 def muunna_tiedot(tietue: list) -> list:
